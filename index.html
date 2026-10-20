@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 
 <html lang="id">
@@ -12,113 +10,377 @@
 
 <meta name="theme-color" content="#31552b">
 
-<title>Doa Harian — 30 Doa Pilihan</title>
+<title>Doa Harian Anak — 30 Doa</title>
 
 <style>
 
-:root{--green:#31552b;--deep:#203c21;--gold:#e9b64f;--cream:#fff9ed;--ink:#2d3028;--muted:#73776c;--line:#ece6d9}
+:root {
 
-*{box-sizing:border-box}
+  --green:#31552b;
 
-body{margin:0;background:#f7f5ed;color:var(--ink);font-family:system-ui,-apple-system,sans-serif}
+  --deep:#203c21;
 
-button,input{font:inherit}
+  --gold:#e9b64f;
 
-.loading{position:fixed;inset:0;z-index:10;background:linear-gradient(#e9f4f5,#fff2df);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;transition:opacity .5s}
+  --cream:#fff9ed;
 
-.loading.hide{opacity:0;pointer-events:none}
+  --ink:#253323;
 
-.art{width:220px;height:185px;position:relative;margin-bottom:14px}
+  --muted:#6d7867;
 
-.moon{position:absolute;top:2px;right:30px;color:#d9a83c;font-size:35px}
+  --line:#e8e6d9;
 
-.mosque{position:absolute;left:50%;top:12px;transform:translateX(-50%);font-size:66px}
+}
 
-.kids{position:absolute;bottom:0;left:0;right:0;font-size:75px;letter-spacing:-12px}
+* { box-sizing:border-box }
 
-.loadbar{width:190px;height:8px;border-radius:20px;background:#e2dfd1;overflow:hidden;margin:20px}
+body {
 
-.loadbar span{display:block;height:100%;width:100%;background:var(--green)}
+  margin:0;
 
-header{background:linear-gradient(130deg,#31552b,#557b42);color:white;padding:24px 18px 32px;border-radius:0 0 28px 28px}
+  background:var(--cream);
 
-.wrap,main{max-width:900px;margin:auto}
+  color:var(--ink);
 
-.brand{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 
-.hero{display:flex;align-items:center;justify-content:space-between;gap:12px}
+}
 
-.hero h1{font-size:clamp(32px,7vw,46px);line-height:1.05;margin:10px 0}
+header {
 
-.hero p{margin:0;line-height:1.55;color:#e7efe2}
+  background:linear-gradient(135deg,var(--deep),var(--green));
 
-.hero-art{font-size:66px}
+  color:white;
 
-.search{margin-top:20px;width:100%;padding:14px 16px;border:0;border-radius:15px;outline:none;background:white;color:var(--ink)}
+  padding:25px 18px 30px;
 
-main{padding:18px 14px 40px}
+  border-radius:0 0 28px 28px;
 
-.chips{display:flex;gap:8px;overflow:auto;padding:3px 0 13px}
+}
 
-.chip{border:1px solid var(--line);background:#fffaf0;border-radius:30px;padding:9px 14px;white-space:nowrap;cursor:pointer}
+.wrap { max-width:850px; margin:auto }
 
-.chip.active{background:var(--green);color:white}
+.top { display:flex; align-items:center; gap:13px }
 
-.subhead{display:flex;align-items:center;justify-content:space-between;margin:10px 2px 12px}
+.logo {
 
-.subhead h2{font-size:19px;margin:0}
+  width:56px;height:56px;
 
-.subhead small{color:var(--muted)}
+  display:grid;place-items:center;
 
-.cards{display:grid;grid-template-columns:1fr;gap:10px}
+  background:#ffffff20;
 
-.card{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1px solid var(--line);background:#fffdf8;border-radius:17px;padding:15px;cursor:pointer;color:inherit}
+  border:1px solid #ffffff40;
 
-.num{width:37px;height:37px;display:grid;place-items:center;border-radius:50%;background:#efe4cf;color:var(--green);font-weight:800;flex-shrink:0}
+  border-radius:18px;
 
-.emoji{font-size:25px}
+  font-size:30px;
 
-.cardcopy{flex:1;min-width:0}
+}
 
-.cardcopy strong{display:block;font-size:15px}
+h1 { font-size:clamp(23px,5vw,34px);margin:0 }
 
-.cardcopy span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
+.sub { margin:5px 0 0;color:#e8efdf;font-size:14px }
 
-.arrow{font-size:22px;color:#8b8b7b}
+.intro {
 
-.detail{display:none;background:#fffdf8;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  margin:22px 0 0;
 
-.detail.show{display:block}
+  padding:14px 16px;
 
-.back{border:0;background:#edf2e8;color:var(--green);padding:12px 15px;border-radius:12px;cursor:pointer;margin:14px}
+  background:#ffffff14;
 
-.detailtop{padding:0 20px 15px}
+  border:1px solid #ffffff25;
 
-.detailtop h2{margin:0 0 5px}
+  border-radius:17px;
 
-.detailtop p{margin:0;color:var(--muted)}
+  line-height:1.55;
 
-.field{margin:10px 14px;padding:15px;border-radius:16px;background:#f0f3e9}
+}
 
-.field h3{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--green);margin:0 0 9px}
+main { padding:18px 14px 42px }
 
-.arabic{font-family:"Noto Naskh Arabic","Amiri","Times New Roman",serif;direction:rtl;text-align:right;font-size:clamp(26px,6vw,35px);line-height:2;margin:0}
+.tools {
 
-.latin,.translation{line-height:1.8;margin:0;font-size:15px}
+  display:grid;
 
-.audio{padding:8px 16px 20px}
+  grid-template-columns:1fr;
 
-.audio button{border:0;border-radius:12px;padding:12px 16px;margin:4px 5px 8px 0;background:var(--green);color:white;cursor:pointer}
+  gap:10px;
 
-.audio button.stop{background:#e9e4d8;color:#333}
+  margin:0 auto 15px;
 
-.audio-status{font-size:13px;line-height:1.6;color:var(--muted)}
+  max-width:850px;
 
-.foot{text-align:center;color:var(--muted);font-size:12px;padding:22px 10px}
+}
 
-.empty{color:var(--muted);padding:20px;text-align:center}
+input,select {
 
-@media(min-width:650px){.cards{grid-template-columns:1fr 1fr}.hero-art{font-size:88px}.detail{max-width:700px;margin:auto}}
+  font:inherit;
+
+  padding:13px 14px;
+
+  border:1px solid var(--line);
+
+  border-radius:13px;
+
+  background:white;
+
+  color:var(--ink);
+
+  width:100%;
+
+  outline-color:var(--gold);
+
+}
+
+.categories {
+
+  display:flex;
+
+  gap:8px;
+
+  overflow-x:auto;
+
+  padding:2px 0 12px;
+
+}
+
+.chip {
+
+  white-space:nowrap;
+
+  border:1px solid #dce2d3;
+
+  background:#fff;
+
+  border-radius:999px;
+
+  padding:9px 13px;
+
+  color:var(--green);
+
+  font:inherit;
+
+  cursor:pointer;
+
+}
+
+.chip.active {
+
+  background:var(--green);
+
+  color:#fff;
+
+  border-color:var(--green);
+
+}
+
+.count {
+
+  font-size:13px;
+
+  color:var(--muted);
+
+  margin:4px 0 12px;
+
+}
+
+.card {
+
+  background:#fff;
+
+  border:1px solid var(--line);
+
+  border-radius:20px;
+
+  padding:19px;
+
+  margin:0 auto 13px;
+
+  max-width:850px;
+
+  box-shadow:0 5px 20px #243a1908;
+
+}
+
+.cardhead { display:flex;align-items:flex-start;gap:12px }
+
+.num {
+
+  flex:0 0 39px;
+
+  height:39px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:13px;
+
+  background:#edf2e6;
+
+  color:var(--green);
+
+  font-weight:800;
+
+}
+
+.card h2 { font-size:18px;margin:2px 0 5px }
+
+.tag { font-size:12px;color:var(--muted) }
+
+.arabic {
+
+  font-family:"Times New Roman",serif;
+
+  font-size:clamp(25px,6vw,34px);
+
+  line-height:1.9;
+
+  text-align:right;
+
+  direction:rtl;
+
+  margin:18px 0 10px;
+
+  color:#203c21;
+
+}
+
+.latin {
+
+  font-size:15px;
+
+  line-height:1.7;
+
+  color:#52604c;
+
+  margin:8px 0;
+
+}
+
+.meaning {
+
+  font-size:14px;
+
+  line-height:1.65;
+
+  background:#f7f8f1;
+
+  padding:12px 13px;
+
+  border-radius:12px;
+
+  margin-top:10px;
+
+}
+
+.label {
+
+  font-size:11px;
+
+  font-weight:800;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+
+  color:#77816e;
+
+  margin-bottom:4px;
+
+}
+
+.actions {
+
+  display:flex;
+
+  gap:8px;
+
+  flex-wrap:wrap;
+
+  margin-top:14px;
+
+}
+
+.btn {
+
+  border:0;
+
+  border-radius:12px;
+
+  padding:11px 14px;
+
+  font:inherit;
+
+  font-size:14px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+}
+
+.primary { background:var(--green);color:#fff }
+
+.secondary { background:#edf2e6;color:var(--green) }
+
+.stop { background:#f7e8e4;color:#8c3828 }
+
+.notice {
+
+  max-width:850px;
+
+  margin:12px auto;
+
+  padding:13px 14px;
+
+  border-radius:13px;
+
+  background:#fff4d8;
+
+  color:#69501b;
+
+  font-size:13px;
+
+  line-height:1.6;
+
+}
+
+.empty {
+
+  max-width:850px;
+
+  margin:auto;
+
+  padding:30px;
+
+  text-align:center;
+
+  color:var(--muted);
+
+}
+
+footer {
+
+  text-align:center;
+
+  padding:20px;
+
+  color:var(--muted);
+
+  font-size:12px;
+
+}
+
+@media(min-width:650px) {
+
+  .tools { grid-template-columns:1fr 210px }
+
+  .card { padding:22px }
+
+}
 
 </style>
 
@@ -126,313 +388,719 @@ main{padding:18px 14px 40px}
 
 <body>
 
-<div class="loading" id="loading">
+<header>
 
- <div class="art"><div class="moon">☾ ✦</div><div class="mosque">🕌</div><div class="kids">👦🏻 👧🏻</div></div>
+  <div class="wrap">
 
- <h1 style="color:#31552b;margin:0;font-size:36px">Doa Harian</h1>
+    <div class="top">
 
- <p style="color:#73776c">30 doa pilihan untuk kegiatan sehari-hari</p>
+      <div class="logo">🌙</div>
 
- <div class="loadbar"><span></span></div>
+      <div>
 
- <small style="color:#73776c">Mari biasakan berdoa dalam setiap langkah kehidupan</small>
+        <h1>Doa Harian Anak</h1>
 
-</div>
+        <p class="sub">Belajar doa sehari-hari dengan cara yang menyenangkan</p>
 
-<header><div class="wrap">
+      </div>
 
- <div class="brand">Teman baik setiap hari ✦</div>
+    </div>
 
- <div class="hero"><div><h1>Doa Harian</h1><p>30 doa pilihan untuk menemani<br>kegiatan sehari-hari.</p></div><div class="hero-art">🤲🏻</div></div>
+    <div class="intro">
 
- <input class="search" id="search" placeholder="⌕ Cari doa harian…" aria-label="Cari doa">
+      🌿 <strong>Assalamu’alaikum, teman kecil!</strong><br>
 
-</div></header>
+      Yuk belajar doa harian. Tekan tombol suara untuk mendengarkan bacaan.
+
+      Semoga Allah menjaga kita setiap hari.
+
+    </div>
+
+  </div>
+
+</header>
 
 <main>
 
-<div class="chips" id="chips">
+  <div class="tools">
 
- <button class="chip active" data-cat="Semua">Semua</button>
+    <input id="search" type="search"
 
- <button class="chip" data-cat="Makan">Makan</button>
+      placeholder="🔎 Cari doa, misalnya sebelum makan..."
 
- <button class="chip" data-cat="Rumah">Rumah</button>
+      aria-label="Cari doa">
 
- <button class="chip" data-cat="Ibadah">Ibadah</button>
+    <select id="category" aria-label="Pilih kategori">
 
- <button class="chip" data-cat="Belajar">Belajar</button>
+      <option value="Semua">Semua kategori</option>
 
- <button class="chip" data-cat="Perjalanan">Perjalanan</button>
+    </select>
 
- <button class="chip" data-cat="Lainnya">Lainnya</button>
+  </div>
 
-</div>
+  <div class="categories" id="chips"></div>
 
-<section id="listview"><div class="subhead"><h2>30 Doa Pilihan</h2><small id="count">30 doa</small></div><div class="cards" id="cards"></div></section>
+  <div class="count" id="count"></div>
 
-<section class="detail" id="detail">
+  <section id="list"></section>
 
- <button class="back" id="back">← Kembali ke daftar</button>
+  <div class="notice">
 
- <div class="detailtop"><h2 id="dtitle"></h2><p id="dsub"></p></div>
+    <strong>Catatan suara:</strong>
 
- <div class="field"><h3>Teks Arab</h3><p class="arabic" id="darabic" lang="ar"></p></div>
+    Website menggunakan fitur suara otomatis dari browser. Nada suara
 
- <div class="field"><h3>Latin</h3><p class="latin" id="dlatin"></p></div>
+    dibuat sedikit lebih tinggi, tetapi belum tentu terdengar seperti anak
 
- <div class="field"><h3>Terjemahan Indonesia</h3><p class="translation" id="dtranslation"></p></div>
+    sungguhan. Ketersediaan suara Arab bergantung pada perangkat.
 
- <div class="audio">
+    Jika suara tidak keluar, periksa volume dan coba buka website di Safari
 
-  <h3 style="font-size:13px;color:#31552b">🔊 Audio bacaan Arab</h3>
+    atau Chrome terbaru.
 
-  <button id="playArabic">▶ Putar bacaan Arab</button>
-
-  <button id="stopArabic" class="stop">■ Hentikan</button>
-
-  <p id="audioStatus" class="audio-status">Tekan Putar untuk mendengarkan bacaan Arab. Suara bergantung pada dukungan bahasa Arab di perangkat.</p>
-
- </div>
-
-</section>
-
-<div class="foot">Semoga Allah memudahkan kita mengingat-Nya setiap hari. 🤍<br>Untuk ketepatan bacaan, cocokkan dengan guru ngaji atau sumber tepercaya.</div>
+  </div>
 
 </main>
 
+<footer>Doa Harian Anak · Belajar dengan kasih sayang 💚</footer>
+
 <script>
 
-const duas=[
+const duas = [
 
-['Doa Sebelum Makan','Memohon keberkahan makanan','Makan','🍽️','بِسْمِ اللَّهِ','Bismillāh.','Dengan nama Allah.'],
+{
 
-['Doa Sesudah Makan','Bersyukur atas rezeki','Makan','🥣','الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مِنَ الْمُسْلِمِينَ','Alhamdu lillāhilladzī ath‘amanā wa saqānā wa ja‘alanā minal-muslimīn.','Segala puji bagi Allah yang telah memberi kami makan dan minum serta menjadikan kami termasuk orang-orang muslim.'],
+id:1,title:"Doa Sebelum Makan",cat:"Makan & Minum",
 
-['Doa Sebelum Tidur','Memohon perlindungan saat tidur','Lainnya','🌙','بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا','Bismikallāhumma amūtu wa aḥyā.','Dengan nama-Mu ya Allah, aku mati dan aku hidup.'],
+ar:"بِسْمِ اللَّهِ",
 
-['Doa Bangun Tidur','Bersyukur setelah bangun','Lainnya','🌤️','الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ','Alhamdu lillāhilladzī aḥyānā ba‘da mā amātanā wa ilaihin-nusyūr.','Segala puji bagi Allah yang menghidupkan kami setelah mematikan kami, dan kepada-Nya kami dibangkitkan.'],
+latin:"Bismillāh.",
 
-['Doa Masuk Kamar Mandi','Memohon perlindungan','Rumah','🚪','اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ','Allāhumma innī a‘ūdzu bika minal-khubutsi wal-khabā’its.','Ya Allah, aku berlindung kepada-Mu dari gangguan setan laki-laki dan perempuan.'],
+meaning:"Dengan nama Allah."
 
-['Doa Keluar Kamar Mandi','Memohon ampunan','Rumah','🚿','غُفْرَانَكَ','Ghufrānak.','Aku memohon ampunan-Mu.'],
+},
 
-['Doa Memakai Pakaian','Bersyukur atas pakaian','Lainnya','👕','الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ','Alhamdu lillāhilladzī kasānī hādzā wa razaqanīhi min ghairi ḥaulin minnī wa lā quwwah.','Segala puji bagi Allah yang memberiku pakaian ini dan rezeki untuk memilikinya tanpa daya dan kekuatan dariku.'],
+{
 
-['Doa Melepas Pakaian','Mengingat Allah','Lainnya','🧥','بِسْمِ اللَّهِ','Bismillāh.','Dengan nama Allah.'],
+id:2,title:"Doa Sesudah Makan",cat:"Makan & Minum",
 
-['Doa Masuk Rumah','Memohon kebaikan saat masuk','Rumah','🏡','بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا','Bismillāhi walajnā wa bismillāhi kharajnā wa ‘alallāhi rabbinā tawakkalnā.','Dengan nama Allah kami masuk, dengan nama Allah kami keluar, dan kepada Allah Tuhan kami, kami bertawakal.'],
+ar:"الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مِنَ الْمُسْلِمِينَ",
 
-['Doa Keluar Rumah','Bertawakal kepada Allah','Rumah','🚶','بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ','Bismillāhi tawakkaltu ‘alallāh, wa lā ḥaula wa lā quwwata illā billāh.','Dengan nama Allah, aku bertawakal kepada Allah. Tiada daya dan kekuatan kecuali dengan pertolongan Allah.'],
+latin:"Alhamdu lillāhilladzī ath‘amanā wa saqānā wa ja‘alanā minal muslimīn.",
 
-['Doa Bercermin','Memohon akhlak yang baik','Lainnya','🪞','اللَّهُمَّ كَمَا حَسَّنْتَ خَلْقِي فَحَسِّنْ خُلُقِي','Allāhumma kamā ḥassanta khalqī faḥassin khuluqī.','Ya Allah, sebagaimana Engkau telah memperindah bentukku, perindahlah pula akhlakku.'],
+meaning:"Segala puji bagi Allah yang telah memberi kami makan dan minum serta menjadikan kami termasuk orang-orang Muslim."
 
-['Doa Sebelum Belajar','Memohon tambahan ilmu','Belajar','📚','رَبِّ زِدْنِي عِلْمًا','Rabbi zidnī ‘ilmā.','Ya Tuhanku, tambahkanlah ilmu kepadaku.'],
+},
 
-['Doa Sesudah Belajar','Memohon ilmu bermanfaat','Belajar','✏️','اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا','Allāhumma innī as’aluka ‘ilman nāfi‘ā.','Ya Allah, aku memohon kepada-Mu ilmu yang bermanfaat.'],
+{
 
-['Doa Masuk Masjid','Memohon rahmat Allah','Ibadah','🕌','اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ','Allāhummaftaḥ lī abwāba raḥmatik.','Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu.'],
+id:3,title:"Doa Sebelum Tidur",cat:"Tidur & Bangun",
 
-['Doa Keluar Masjid','Memohon karunia Allah','Ibadah','🕌','اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ','Allāhumma innī as’aluka min faḍlik.','Ya Allah, sesungguhnya aku memohon karunia-Mu.'],
+ar:"بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
 
-['Doa Naik Kendaraan','Memohon perjalanan yang aman','Perjalanan','🚗','سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ','Subḥānalladzī sakhkhara lanā hādzā wa mā kunnā lahū muqrinīn, wa innā ilā rabbinā lamunqalibūn.','Mahasuci Allah yang menundukkan kendaraan ini bagi kami, padahal kami tidak mampu menguasainya, dan sesungguhnya kepada Tuhan kami akan kembali.'],
+latin:"Bismikallāhumma amūtu wa aḥyā.",
 
-['Doa Bepergian','Memohon kemudahan perjalanan','Perjalanan','🧳','اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ','Allāhumma hawwin ‘alainā safaranā hādzā waṭwi ‘annā bu‘dah.','Ya Allah, mudahkanlah perjalanan kami ini dan dekatkanlah jaraknya.'],
+meaning:"Dengan nama-Mu, ya Allah, aku mati dan aku hidup."
 
-['Doa Ketika Hujan','Memohon hujan yang bermanfaat','Lainnya','🌧️','اللَّهُمَّ صَيِّبًا نَافِعًا','Allāhumma ṣayyiban nāfi‘ā.','Ya Allah, jadikanlah hujan ini hujan yang bermanfaat.'],
+},
 
-['Doa Setelah Hujan','Bersyukur atas hujan','Lainnya','🌦️','مُطِرْنَا بِفَضْلِ اللَّهِ وَرَحْمَتِهِ','Muṭirnā bifaḍlillāhi wa raḥmatih.','Kami diberi hujan karena karunia dan rahmat Allah.'],
+{
 
-['Doa Ketika Bersin','Memuji Allah','Lainnya','🤧','الْحَمْدُ لِلَّهِ','Alhamdulillāh.','Segala puji bagi Allah.'],
+id:4,title:"Doa Bangun Tidur",cat:"Tidur & Bangun",
 
-['Doa Menjawab Orang Bersin','Mendoakan saudara','Lainnya','🤲','يَرْحَمُكَ اللَّهُ','Yarḥamukallāh.','Semoga Allah merahmatimu.'],
+ar:"الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
 
-['Doa Ketika Marah','Memohon perlindungan Allah','Lainnya','💚','أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ','A‘ūdzu billāhi minasy-syaiṭānir-rajīm.','Aku berlindung kepada Allah dari setan yang terkutuk.'],
+latin:"Alhamdu lillāhilladzī aḥyānā ba‘da mā amātanā wa ilaihin-nusyūr.",
 
-['Doa Memohon Ampunan','Memohon ampun kepada Allah','Ibadah','🤲','رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ','Rabbighfir lī wa tub ‘alayya innaka antat-tawwābur-raḥīm.','Ya Tuhanku, ampunilah aku dan terimalah tobatku. Sungguh, Engkau Maha Penerima Tobat lagi Maha Penyayang.'],
+meaning:"Segala puji bagi Allah yang menghidupkan kami setelah mematikan kami, dan kepada-Nya kami dibangkitkan."
 
-['Doa Untuk Orang Tua','Memohon kasih sayang untuk orang tua','Lainnya','👨‍👩‍👧','رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا','Rabbirḥamhumā kamā rabbayānī ṣaghīrā.','Ya Tuhanku, sayangilah keduanya sebagaimana mereka telah mendidikku waktu kecil.'],
+},
 
-['Doa Kebaikan Dunia Akhirat','Memohon kebaikan menyeluruh','Ibadah','✨','رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ','Rabbanā ātinā fid-dunyā ḥasanah wa fil-ākhirati ḥasanah wa qinā ‘adzāban-nār.','Ya Tuhan kami, berilah kami kebaikan di dunia dan kebaikan di akhirat serta lindungilah kami dari azab neraka.'],
+{
 
-['Doa Memohon Kesehatan','Memohon keselamatan dan kesehatan','Ibadah','💚','اللَّهُمَّ عَافِنِي فِي بَدَنِي','Allāhumma ‘āfinī fī badanī.','Ya Allah, sehatkanlah tubuhku.'],
+id:5,title:"Doa Masuk Kamar Mandi",cat:"Kegiatan Harian",
 
-['Doa Mengingat Ciptaan Allah','Mengingat kebesaran Allah','Lainnya','🌿','رَبَّنَا مَا خَلَقْتَ هَذَا بَاطِلًا سُبْحَانَكَ فَقِنَا عَذَابَ النَّارِ','Rabbanā mā khalaqta hādzā bāṭilā, subḥānaka faqinā ‘adzāban-nār.','Ya Tuhan kami, tidaklah Engkau menciptakan semua ini sia-sia. Mahasuci Engkau, lindungilah kami dari azab neraka.'],
+ar:"اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ",
 
-['Doa Memohon Kemudahan','Memohon urusan dimudahkan','Belajar','🌟','رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي','Rabbisyraḥ lī ṣadrī wa yassir lī amrī.','Ya Tuhanku, lapangkanlah dadaku dan mudahkanlah urusanku.'],
+latin:"Allāhumma innī a‘ūdzu bika minal-khubutsi wal-khabā’its.",
 
-['Doa Ketika Lupa','Memohon pertolongan dan ingatan','Belajar','🧠','رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا','Rabbanā lā tu’ākhidznā in nasīnā aw akhṭa’nā.','Ya Tuhan kami, janganlah Engkau hukum kami jika kami lupa atau melakukan kesalahan.'],
+meaning:"Ya Allah, aku berlindung kepada-Mu dari godaan setan laki-laki dan perempuan."
 
-['Doa Penutup Majelis','Memohon ampun dan bertobat','Lainnya','🤍','سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ','Subḥānakallāhumma wa biḥamdika, asyhadu an lā ilāha illā anta, astaghfiruka wa atūbu ilaik.','Mahasuci Engkau ya Allah dan segala puji bagi-Mu. Aku bersaksi tiada Tuhan selain Engkau, aku memohon ampun dan bertobat kepada-Mu.'],
+},
 
-['Doa Mohon Perlindungan','Memohon perlindungan dari keburukan','Ibadah','🛡️','قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ','Qul a‘ūdzu birabbil-falaq.','Katakanlah, aku berlindung kepada Tuhan yang menguasai subuh.']
+{
+
+id:6,title:"Doa Keluar Kamar Mandi",cat:"Kegiatan Harian",
+
+ar:"غُفْرَانَكَ",
+
+latin:"Ghufrānak.",
+
+meaning:"Aku memohon ampunan-Mu."
+
+},
+
+{
+
+id:7,title:"Doa Masuk Rumah",cat:"Kegiatan Harian",
+
+ar:"بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَى اللَّهِ رَبِّنَا تَوَكَّلْنَا",
+
+latin:"Bismillāhi walajnā wa bismillāhi kharajnā wa ‘alallāhi rabbinā tawakkalnā.",
+
+meaning:"Dengan nama Allah kami masuk, dengan nama Allah kami keluar, dan kepada Allah Tuhan kami, kami bertawakal."
+
+},
+
+{
+
+id:8,title:"Doa Keluar Rumah",cat:"Kegiatan Harian",
+
+ar:"بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+
+latin:"Bismillāhi tawakkaltu ‘alallāh, wa lā ḥaula wa lā quwwata illā billāh.",
+
+meaning:"Dengan nama Allah, aku bertawakal kepada Allah. Tiada daya dan kekuatan kecuali dengan pertolongan Allah."
+
+},
+
+{
+
+id:9,title:"Doa Naik Kendaraan",cat:"Perjalanan",
+
+ar:"سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ",
+
+latin:"Subḥānalladzī sakhkhara lanā hādzā wa mā kunnā lahū muqrinīn, wa innā ilā rabbinā lamunqalibūn.",
+
+meaning:"Mahasuci Allah yang telah menundukkan kendaraan ini bagi kami, padahal kami tidak mampu menguasainya, dan sesungguhnya kepada Tuhan kami akan kembali."
+
+},
+
+{
+
+id:10,title:"Doa Memohon Ilmu",cat:"Belajar",
+
+ar:"رَبِّ زِدْنِي عِلْمًا",
+
+latin:"Rabbi zidnī ‘ilmā.",
+
+meaning:"Ya Tuhanku, tambahkanlah ilmu kepadaku."
+
+},
+
+{
+
+id:11,title:"Doa Sebelum Belajar",cat:"Belajar",
+
+ar:"رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي",
+
+latin:"Rabbisyraḥ lī ṣadrī wa yassir lī amrī.",
+
+meaning:"Ya Tuhanku, lapangkanlah dadaku dan mudahkanlah urusanku."
+
+},
+
+{
+
+id:12,title:"Doa Untuk Kedua Orang Tua",cat:"Keluarga",
+
+ar:"رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+
+latin:"Rabbighfir lī wa liwālidayya warḥamhumā kamā rabbayānī ṣaghīrā.",
+
+meaning:"Ya Tuhanku, ampunilah aku dan kedua orang tuaku, serta sayangilah mereka sebagaimana mereka menyayangiku ketika kecil."
+
+},
+
+{
+
+id:13,title:"Doa Kebaikan Dunia Akhirat",cat:"Doa Pilihan",
+
+ar:"رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+
+latin:"Rabbanā ātinā fid-dunyā ḥasanah wa fil-ākhirati ḥasanah wa qinā ‘adzāban-nār.",
+
+meaning:"Ya Tuhan kami, berilah kami kebaikan di dunia dan akhirat, serta lindungilah kami dari azab neraka."
+
+},
+
+{
+
+id:14,title:"Doa Ketika Bercermin",cat:"Kegiatan Harian",
+
+ar:"اللَّهُمَّ كَمَا حَسَّنْتَ خَلْقِي فَحَسِّنْ خُلُقِي",
+
+latin:"Allāhumma kamā ḥassanta khalqī faḥassin khuluqī.",
+
+meaning:"Ya Allah, sebagaimana Engkau telah membaguskan bentukku, baguskanlah pula akhlakku."
+
+},
+
+{
+
+id:15,title:"Doa Memakai Pakaian",cat:"Kegiatan Harian",
+
+ar:"الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ",
+
+latin:"Alhamdu lillāhilladzī kasānī hādzā wa razaqanīhi min ghairi ḥaulin minnī wa lā quwwah.",
+
+meaning:"Segala puji bagi Allah yang memberiku pakaian ini dan rezeki tanpa daya dan kekuatan dariku."
+
+},
+
+{
+
+id:16,title:"Doa Melepas Pakaian",cat:"Kegiatan Harian",
+
+ar:"بِسْمِ اللَّهِ",
+
+latin:"Bismillāh.",
+
+meaning:"Dengan nama Allah."
+
+},
+
+{
+
+id:17,title:"Doa Ketika Hujan",cat:"Alam & Cuaca",
+
+ar:"اللَّهُمَّ صَيِّبًا نَافِعًا",
+
+latin:"Allāhumma ṣayyiban nāfi‘ā.",
+
+meaning:"Ya Allah, jadikanlah hujan ini hujan yang bermanfaat."
+
+},
+
+{
+
+id:18,title:"Doa Setelah Hujan",cat:"Alam & Cuaca",
+
+ar:"مُطِرْنَا بِفَضْلِ اللَّهِ وَرَحْمَتِهِ",
+
+latin:"Muṭirnā bifaḍlillāhi wa raḥmatih.",
+
+meaning:"Kami diberi hujan karena karunia dan rahmat Allah."
+
+},
+
+{
+
+id:19,title:"Doa Ketika Bersin",cat:"Adab & Akhlak",
+
+ar:"الْحَمْدُ لِلَّهِ",
+
+latin:"Alhamdulillāh.",
+
+meaning:"Segala puji bagi Allah."
+
+},
+
+{
+
+id:20,title:"Jawaban untuk Orang Bersin",cat:"Adab & Akhlak",
+
+ar:"يَرْحَمُكَ اللَّهُ",
+
+latin:"Yarḥamukallāh.",
+
+meaning:"Semoga Allah merahmatimu."
+
+},
+
+{
+
+id:21,title:"Doa Memohon Ampun",cat:"Doa Pilihan",
+
+ar:"رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ",
+
+latin:"Rabbighfir lī wa tub ‘alayya innaka antat-tawwābur-raḥīm.",
+
+meaning:"Ya Tuhanku, ampunilah aku dan terimalah tobatku. Sungguh Engkau Maha Penerima Tobat lagi Maha Penyayang."
+
+},
+
+{
+
+id:22,title:"Doa Saat Marah",cat:"Adab & Akhlak",
+
+ar:"أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",
+
+latin:"A‘ūdzu billāhi minasy-syaiṭānir-rajīm.",
+
+meaning:"Aku berlindung kepada Allah dari setan yang terkutuk."
+
+},
+
+{
+
+id:23,title:"Doa Masuk Masjid",cat:"Ibadah",
+
+ar:"اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+
+latin:"Allāhummaftaḥ lī abwāba raḥmatik.",
+
+meaning:"Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu."
+
+},
+
+{
+
+id:24,title:"Doa Keluar Masjid",cat:"Ibadah",
+
+ar:"اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ",
+
+latin:"Allāhumma innī as’aluka min faḍlik.",
+
+meaning:"Ya Allah, sesungguhnya aku memohon karunia-Mu."
+
+},
+
+{
+
+id:25,title:"Doa Sebelum Wudu",cat:"Ibadah",
+
+ar:"بِسْمِ اللَّهِ",
+
+latin:"Bismillāh.",
+
+meaning:"Dengan nama Allah."
+
+},
+
+{
+
+id:26,title:"Doa Sesudah Wudu",cat:"Ibadah",
+
+ar:"أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+
+latin:"Asyhadu an lā ilāha illallāhu waḥdahū lā syarīka lah, wa asyhadu anna Muḥammadan ‘abduhū wa rasūluh.",
+
+meaning:"Aku bersaksi tiada Tuhan selain Allah Yang Esa, tiada sekutu bagi-Nya, dan aku bersaksi Muhammad adalah hamba dan utusan-Nya."
+
+},
+
+{
+
+id:27,title:"Doa Ketika Sakit",cat:"Kesehatan",
+
+ar:"اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ وَاشْفِ أَنْتَ الشَّافِي",
+
+latin:"Allāhumma rabban-nās, adzhibil-ba’sa wasyfi antasy-syāfī.",
+
+meaning:"Ya Allah, Tuhan manusia, hilangkanlah penyakit dan sembuhkanlah; Engkaulah Maha Penyembuh."
+
+},
+
+{
+
+id:28,title:"Doa Menjenguk Orang Sakit",cat:"Kesehatan",
+
+ar:"لَا بَأْسَ طَهُورٌ إِنْ شَاءَ اللَّهُ",
+
+latin:"Lā ba’sa ṭahūrun insyā Allāh.",
+
+meaning:"Tidak apa-apa, semoga sakit ini menjadi pembersih dosa, insya Allah."
+
+},
+
+{
+
+id:29,title:"Doa Ketika Mendengar Petir",cat:"Alam & Cuaca",
+
+ar:"سُبْحَانَ الَّذِي يُسَبِّحُ الرَّعْدُ بِحَمْدِهِ وَالْمَلَائِكَةُ مِنْ خِيفَتِهِ",
+
+latin:"Subḥānalladzī yusabbiḥur-ra‘du biḥamdihī wal-malā’ikatu min khīfatih.",
+
+meaning:"Mahasuci Allah yang petir bertasbih dengan memuji-Nya, demikian pula para malaikat karena takut kepada-Nya."
+
+},
+
+{
+
+id:30,title:"Doa Penutup Majelis",cat:"Adab & Akhlak",
+
+ar:"سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا أَنْتَ أَسْتَغْفِرُكَ وَأَتُوبُ إِلَيْكَ",
+
+latin:"Subḥānaka allāhumma wa biḥamdik, asyhadu an lā ilāha illā ant, astaghfiruka wa atūbu ilaik.",
+
+meaning:"Mahasuci Engkau, ya Allah, dan dengan memuji-Mu aku bersaksi tiada Tuhan selain Engkau. Aku memohon ampun dan bertobat kepada-Mu."
+
+}
 
 ];
 
-let activeCat='Semua';
+const list = document.getElementById("list");
 
-let currentDua=null;
+const search = document.getElementById("search");
 
-const cards=document.getElementById('cards');
+const category = document.getElementById("category");
 
-const search=document.getElementById('search');
+const chips = document.getElementById("chips");
 
-const $=id=>document.getElementById(id);
+const count = document.getElementById("count");
 
-function draw(){
+let activeCat = "Semua";
 
- const q=search.value.toLowerCase().trim();
+let voices = [];
 
- const items=duas.map((d,i)=>({...d,i})).filter(d=>
+const cats = ["Semua", ...new Set(duas.map(d => d.cat))];
 
- (activeCat==='Semua'||d[2]===activeCat)&&
+cats.forEach(c => {
 
- (!q||(d[0]+' '+d[1]+' '+d[2]+' '+d[5]+' '+d[6]).toLowerCase().includes(q))
+  const option = document.createElement("option");
 
- );
+  option.value = c;
 
- cards.innerHTML='';
+  option.textContent = c;
 
- $('count').textContent=items.length+' doa';
+  category.appendChild(option);
 
- if(!items.length){cards.innerHTML='<div class="empty">Doa tidak ditemukan.</div>';return}
+  const button = document.createElement("button");
 
- items.forEach(d=>{
+  button.className = "chip" + (c === "Semua" ? " active" : "");
 
-  const b=document.createElement('button');
+  button.textContent = c;
 
-  b.className='card';
+  button.onclick = () => {
 
-  const n=document.createElement('span');n.className='num';n.textContent=d.i+1;
+    activeCat = c;
 
-  const em=document.createElement('span');em.className='emoji';em.textContent=d[3];
+    category.value = c;
 
-  const copy=document.createElement('span');copy.className='cardcopy';
+    document.querySelectorAll(".chip").forEach(chip => {
 
-  const strong=document.createElement('strong');strong.textContent=d[0];
+      chip.classList.toggle("active", chip.textContent === c);
 
-  const sub=document.createElement('span');sub.textContent=d[1];
+    });
 
-  copy.append(strong,sub);
+    render();
 
-  const arrow=document.createElement('span');arrow.className='arrow';arrow.textContent='›';
+  };
 
-  b.append(n,em,copy,arrow);
-
-  b.onclick=()=>openDua(d.i);
-
-  cards.appendChild(b);
-
- });
-
-}
-
-function openDua(i){
-
- currentDua=duas[i];
-
- speechSynthesis.cancel();
-
- $('listview').style.display='none';
-
- $('chips').style.display='none';
-
- $('detail').classList.add('show');
-
- $('dtitle').textContent=currentDua[0];
-
- $('dsub').textContent='Doa '+(i+1)+' dari 30 • '+currentDua[1];
-
- $('darabic').textContent=currentDua[4];
-
- $('dlatin').textContent=currentDua[5];
-
- $('dtranslation').textContent=currentDua[6];
-
- $('audioStatus').textContent='Tekan Putar untuk mendengarkan bacaan Arab.';
-
-}
-
-function playArabic(){
-
- if(!currentDua)return;
-
- if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){
-
-  $('audioStatus').textContent='Perangkat atau browser ini tidak mendukung pembaca suara. Coba Safari versi terbaru.';
-
-  return;
-
- }
-
- speechSynthesis.cancel();
-
- const utterance=new SpeechSynthesisUtterance(currentDua[4]);
-
- utterance.lang='ar-SA';
-
- utterance.rate=0.75;
-
- utterance.pitch=1;
-
- const voices=speechSynthesis.getVoices();
-
- const arabicVoice=voices.find(v=>v.lang.toLowerCase().startsWith('ar'));
-
- if(arabicVoice)utterance.voice=arabicVoice;
-
- utterance.onstart=()=>{$('audioStatus').textContent='Sedang membacakan teks Arab. Ini suara sintetis perangkat, bukan rekaman qari.';};
-
- utterance.onend=()=>{$('audioStatus').textContent='Bacaan selesai. Tekan Putar untuk mendengarkan lagi.';};
-
- utterance.onerror=()=>{$('audioStatus').textContent='Suara Arab tidak tersedia atau gagal diputar. Periksa pengaturan suara dan coba lagi.';};
-
- speechSynthesis.speak(utterance);
-
-}
-
-$('playArabic').addEventListener('click',playArabic);
-
-$('stopArabic').addEventListener('click',()=>{
-
- if('speechSynthesis' in window)speechSynthesis.cancel();
-
- $('audioStatus').textContent='Bacaan dihentikan.';
+  chips.appendChild(button);
 
 });
 
-$('back').onclick=()=>{
+function loadVoices() {
 
- if('speechSynthesis' in window)speechSynthesis.cancel();
+  if ("speechSynthesis" in window) {
 
- $('detail').classList.remove('show');
+    voices = window.speechSynthesis.getVoices();
 
- $('listview').style.display='block';
+  }
 
- $('chips').style.display='flex';
+}
 
-};
+if ("speechSynthesis" in window) {
 
-$('chips').addEventListener('click',e=>{
+  loadVoices();
 
- const b=e.target.closest('button[data-cat]');
+  window.speechSynthesis.onvoiceschanged = loadVoices;
 
- if(!b)return;
+}
 
- activeCat=b.dataset.cat;
+function speak(text, lang, button) {
 
- document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active',c===b));
+  if (!("speechSynthesis" in window)) {
 
- draw();
+    alert("Browser ini tidak mendukung suara otomatis. Coba Safari atau Chrome terbaru.");
+
+    return;
+
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  utterance.lang = lang;
+
+  utterance.rate = lang === "ar-SA" ? 0.72 : 0.78;
+
+  utterance.pitch = 1.25;
+
+  utterance.volume = 1;
+
+  const prefix = lang === "ar-SA" ? "ar" : "id";
+
+  const candidates = voices.filter(v =>
+
+    v.lang.toLowerCase().startsWith(prefix)
+
+  );
+
+  if (candidates.length) {
+
+    const preferred = candidates.find(v =>
+
+      /female|woman|girl|child|laila|hoda|amira|zeina/i.test(v.name)
+
+    );
+
+    utterance.voice = preferred || candidates[0];
+
+  }
+
+  button.textContent = "🔊 Sedang memutar…";
+
+  utterance.onend = () => {
+
+    button.textContent = button.dataset.label;
+
+  };
+
+  utterance.onerror = () => {
+
+    button.textContent = button.dataset.label;
+
+  };
+
+  window.speechSynthesis.speak(utterance);
+
+}
+
+function render() {
+
+  const query = search.value.trim().toLowerCase();
+
+  const data = duas.filter(d => {
+
+    const matchesCategory = activeCat === "Semua" || d.cat === activeCat;
+
+    const searchable = `${d.title} ${d.cat} ${d.latin} ${d.meaning}`.toLowerCase();
+
+    return matchesCategory && searchable.includes(query);
+
+  });
+
+  count.textContent = `Menampilkan ${data.length} dari ${duas.length} doa`;
+
+  if (!data.length) {
+
+    list.innerHTML = '<div class="empty">Doa tidak ditemukan. Coba kata pencarian lain.</div>';
+
+    return;
+
+  }
+
+  list.innerHTML = data.map(d => `
+
+    <article class="card">
+
+      <div class="cardhead">
+
+        <div class="num">${d.id}</div>
+
+        <div>
+
+          <h2>${d.title}</h2>
+
+          <div class="tag">${d.cat}</div>
+
+        </div>
+
+      </div>
+
+      <div class="arabic" lang="ar" dir="rtl">${d.ar}</div>
+
+      <div class="label">Bacaan Latin</div>
+
+      <p class="latin">${d.latin}</p>
+
+      <div class="meaning">
+
+        <div class="label">Artinya</div>
+
+        ${d.meaning}
+
+      </div>
+
+      <div class="actions">
+
+        <button class="btn primary" data-id="${d.id}" data-kind="ar">
+
+          🔊 Putar bahasa Arab
+
+        </button>
+
+        <button class="btn secondary" data-id="${d.id}" data-kind="latin">
+
+          🗣️ Putar Latin
+
+        </button>
+
+        <button class="btn stop" data-kind="stop">
+
+          ■ Berhenti
+
+        </button>
+
+      </div>
+
+    </article>
+
+  `).join("");
+
+  list.querySelectorAll("button").forEach(button => {
+
+    if (button.dataset.kind === "stop") {
+
+      button.onclick = () => {
+
+        if ("speechSynthesis" in window) {
+
+          window.speechSynthesis.cancel();
+
+        }
+
+      };
+
+      return;
+
+    }
+
+    const dua = duas.find(d => d.id === Number(button.dataset.id));
+
+    const kind = button.dataset.kind;
+
+    button.dataset.label = button.textContent.trim();
+
+    button.onclick = () => {
+
+      speak(
+
+        kind === "ar" ? dua.ar : dua.latin,
+
+        kind === "ar" ? "ar-SA" : "id-ID",
+
+        button
+
+      );
+
+    };
+
+  });
+
+}
+
+search.addEventListener("input", render);
+
+category.addEventListener("change", () => {
+
+  activeCat = category.value;
+
+  document.querySelectorAll(".chip").forEach(chip => {
+
+    chip.classList.toggle("active", chip.textContent === activeCat);
+
+  });
+
+  render();
 
 });
 
-search.addEventListener('input',draw);
-
-draw();
-
-window.addEventListener('load',()=>setTimeout(()=>$('loading').classList.add('hide'),1600));
+render();
 
 </script>
 
